@@ -1,0 +1,20 @@
+<div class="jumbotron text-left">
+	<h2>Search for Your Favourite TV shows</h2>
+
+	<form>
+		<div class="form-group">
+			<input type="text" class="form-control" ng-model="showname">
+		</div>
+			
+		<div class="form-group">
+			<div>
+				<button type="button" class="btn btn-primary" ng-click="getShows()">Search</button>
+			</div>
+		</div>
+		<p ng-show = "details.length === 0">
+            <i>no results found </i>
+          </p>
+	</form>
+
+	<div show-preview shows = "details"></div>
+</div>

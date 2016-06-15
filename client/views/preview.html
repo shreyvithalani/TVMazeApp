@@ -1,0 +1,18 @@
+<div ng-if = "shows">
+<div ng-repeat = "show in shows">
+	<div class = "row" style="border: 2px solid black">
+	<div class = "col-xs-6">
+	<img src = "{{show.show.image.medium}}" vspace="40">
+	</div>
+	<div class = "col-xs-6">
+	  <h2> {{show.show.name}}</h2>
+	  <div ng-repeat ="show in show.show.genres" style="display: inline-block">
+				{{show}}{{$last ? ' ' : ' | '}}&nbsp;  	
+	  </div> 
+	  
+	  <p ng-bind-html = "show.show.summary | trustHTML"></p>
+	  <a href = "/shows/{{show.show.id}}" class = "btn btn-warning pull-right">Details</a>
+    </div>
+</div>
+</div>
+</div>

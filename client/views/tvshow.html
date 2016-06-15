@@ -1,0 +1,47 @@
+
+	 <div class = "row">
+		<div class = "col-xs-6">
+				<h2> {{tvshow.name}}</h2>
+					<div ng-repeat ="show in tvshow.genres" style="display: inline-block">
+					{{show}}{{$last ? ' ' : ' | '}}&nbsp;  	
+					<!-- got the idea by learning from this example http://jsfiddle.net/hrishi1183/Sek8F/2/ -->
+				</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<img src = "{{tvshow.image.medium}}">
+		</div>
+		<div class="col-md-8">
+		<h2>Summary</h2>
+		<hr>
+		<p ng-bind-html = "tvshow.summary | trustHTML"></p>
+		<h2>Cast</h2>
+		<hr>
+		<div ng-repeat="castdes in tvshow._embedded.cast">
+		<div class="row" style=" margin: 10px">
+
+		<div ng-if="castdes.character.image.medium != null">
+		<img src = "{{castdes.character.image.medium}}" height="80" width="40">
+		{{castdes.person.name}} &nbsp; ... {{castdes.character.name}}
+		</div>
+
+		<div ng-if="castdes.character.image.medium == null">
+		<img src = "{{castdes.person.image.medium}}" height="80" width="40">
+		{{castdes.person.name}} &nbsp; ... {{castdes.character.name}}
+		</div>
+		
+		<div ng-if="castdes.character.image.medium == null && castdes.person.image.medium == null">
+		<img src="../images/Not_available_icon.jpg" height="80" width="40">
+		{{castdes.person.name}} &nbsp; ... {{castdes.character.name}}
+		</div>
+		
+		
+		</div>
+		</div>
+		</div>
+	</div>
+
+
+
+
